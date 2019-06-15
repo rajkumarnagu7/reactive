@@ -1,0 +1,86 @@
+<div>
+  <h2>User Form</h2>
+</div>
+
+<form name="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <h5> Name:</h5>
+    <input type="text" class="form-control" placeholder="Enter Name" formControlName="fname" [ngClass]="{'is-invalid':
+          form.get('fname').touched && form.get('fname').invalid}" />
+    <div class="invalid-feedback">
+      <div>
+        Name is required
+      </div>
+    </div>
+  </div>
+
+  <div>
+      <h5> Email:</h5>
+      <input type="email" class="form-control" placeholder="Enter email" [ngClass]="{'is-invalid':
+      form.get('usermail').touched && form.get('usermail').invalid}" formControlName="usermail" name="usermail">
+      <div *ngIf="form.get('usermail').touched && form.get('usermail').invalid" class="invalid-feedback">
+        <div *ngIf="form.get('usermail').errors.required">Email Is Required</div>
+        <div *ngIf="form.get('usermail').errors.email">Must Be an Email</div>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <h5> Url:</h5>
+      <input type="url" class="form-control" placeholder="Enter Url" formControlName="userurl" [ngClass]="{'is-invalid':
+            form.get('userurl').touched && form.get('userurl').invalid}" />
+      <div class="invalid-feedback">
+        <div>
+          Url is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <h5> Phone:</h5>
+        <input type="text" class="form-control" placeholder="Enter Phone" formControlName="userphone" [ngClass]="{'is-invalid':
+              form.get('userphone').touched && form.get('userphone').invalid}" />
+        <div class="invalid-feedback">
+          <div>
+            Phone is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <h5> State:</h5>
+          <select class="form-control" formControlName="userstate" [ngClass]="{'is-invalid':
+                form.get('userstate').touched && form.get('userstate').invalid}">
+                <option value=""> Enter state</option>
+                <option value="telangana"> Telangna</option>
+                <option value="andhra">Andrapradesh</option>
+          </select>
+          <div class="invalid-feedback">
+            <div>
+              State is required
+            </div>
+          </div>
+        </div>
+    <div class="form-group">
+        <h5> Address:</h5>
+        <textarea cols="30" rows="5" class="form-control" placeholder="Enter Address" formControlName="useraddress" [ngClass]="{'is-invalid':
+              form.get('useraddress').touched && form.get('useraddress').invalid}"></textarea>
+        <div class="invalid-feedback">
+          <div>
+            Address is required
+          </div>
+        </div>
+      </div>
+    
+    <div class="form-group">
+        <h5> Date:</h5>
+        <input type="date" class="form-control" placeholder="Enter Date" formControlName="userdate" [ngClass]="{'is-invalid':
+              form.get('userdate').touched && form.get('userdate').invalid}" />
+        <div class="invalid-feedback">
+          <div>
+            Url is required
+          </div>
+        </div>
+      </div>
+  
+  <div>
+    <button class="btn btn-primary" [disabled]="!form.valid">{{submit}}</button>
+  </div>
+</form>

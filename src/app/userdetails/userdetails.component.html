@@ -1,0 +1,33 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">url</th>
+            <th scope="col">Phone</th>
+            <th scope="col">State</th>
+            <th scope="col">Address</th>
+            <th scope="col">Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userdetail; let i=index">
+            <td>{{user.fname}}</td>
+            <td>{{user.usermail}}</td>
+            <td>{{user.userurl}}</td>
+            <td>{{user.userphone}}</td>
+            <td>{{user.userstate}}</td>
+            <td>{{user.useraddress}}</td>
+            <td>{{user.userdate}}</td>
+            <td>
+              <button (click)="edituser(i)">Edit</button>
+              <button (click)="deleteform(i)">Delete</button>
+            </td>
+          </tr>
+ 
+      
+        </tbody>
+      </table>
+</div>
